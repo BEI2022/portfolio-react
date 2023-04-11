@@ -1,11 +1,11 @@
-import About from /components/About
-import Contact from /components/Contact
-import Expercence from /components/Expercence
-import Navbar from /components/Navbar
+import About from './components/About'
+import Contact from './components/Contact'
+import Expercence from './components/Expercence'
+import Navbar from './components/Navbar'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
       <Contact/>
       <Expercence/>
       <Navbar/>
+      <ScrollTop/>
     </>
 
     // <div className="App">
