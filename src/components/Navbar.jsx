@@ -19,6 +19,20 @@ const Navbar = () => {
     evt.preventDefault()
     taegets[evt.target.name]?.scrollIntoView()
   }
+
+  const Menu = () =>{
+
+  return (
+    <div>
+      {
+        Link.map((item, index) => { 
+          return <Link to='/' key={index} name={item} onClick={toggleroll}>{item}</Link>
+        })
+        }
+    </div>
+    )
+  }
+
   return (
     <div>Navbar</div>
   )
