@@ -4,20 +4,20 @@ import { Link }from 'react-router-dom'
 const Navbar = () => {
   const link = ['Home', 'About', 'Expercence', 'Contact']
   const [isOpen, setOpen] = useStates(false)
-  const taegets = {
+  const targets = {
     Home : document.getElementById('home'),
     About : document.getElementById('about'),
     Expercence : document.getElementById('expercence'),
     Contact : document.getElementById('contact') 
   }
   useEffect(()=>{
-  },[taegets?.Contact]
+  },[targets?.Contact]
   )
 
   const toggleroll = (evt) => {
     setOpen(!isOpen)
     evt.preventDefault()
-    taegets[evt.target.name]?.scrollIntoView()
+    targets[evt.target.name]?.scrollIntoView()
   }
 
   const Menu = () =>{
@@ -34,7 +34,21 @@ const Navbar = () => {
   }
 
   return (
-    <div>Navbar</div>
+    <>
+    <div>
+      <Menu/>
+      <nav>
+        {
+          Link.map((item, index) =>{
+            return <a key={index} href={`#${link}`} name={link} onLoad={setOpen} onClick={(evt)=>{
+              targets[evt.target.name]?.scrollIntoView()
+            setOpen(false)}
+            }>{link}</a>
+          })
+        }
+      </nav>
+    </div>
+    </>
   )
 }
 
